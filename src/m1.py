@@ -10,7 +10,7 @@ import rosegraphics as rg
 
 ###############################################################################
 #
-# TODO: 2. READ these instructions, ASKING QUESTIONS as needed.
+# DONE: 2. READ these instructions, ASKING QUESTIONS as needed.
 #
 #   This module contains 7 "broken" functions.
 #
@@ -175,7 +175,7 @@ def broken_1(circle, window):
       :type window: rg.RoseWindow
     """
     circle.attach_to(window)
-    circle2 = rg.Circle(circle.radius * 2)
+    circle2 = rg.Circle(circle.center, circle.radius * 2)
     circle2.attach_to(window)
     window.render()
 
@@ -199,7 +199,7 @@ def broken_2(x, y, window):
       :type y:      int
       :type window: rg.RoseWindow
       """
-    circle = rg.Circle((x, y), 33)
+    circle = rg.Circle(rg.Point(x, y), 33)
     circle.attach_to(window)
     window.render()
 
@@ -235,7 +235,7 @@ def broken_3(n, point, length, distance_between_lines, window):
     a = rg.Point(point.x, point.y)
     b = rg.Point(point.x, point.y + length)
 
-    for _ in range(n):
+    for k in range(n):
         line = rg.Line(a, b)
         line.attach_to(window)
         window.render(0.5)
